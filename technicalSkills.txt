@@ -1,0 +1,4 @@
+P =  Programming & Software Engineering
+N = Networking and Security
+A = Analytics and Big Data
+W = Web & Mobile applications
