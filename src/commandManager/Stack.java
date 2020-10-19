@@ -1,6 +1,7 @@
 package commandManager;
 
 import java.util.LinkedList;
+// Generic stack class that takes object of type T is Generic
 import java.util.List;
 class Stack<T> {
     private List<T> dataCollection;

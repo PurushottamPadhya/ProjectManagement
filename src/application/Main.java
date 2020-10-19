@@ -13,6 +13,7 @@ public class Main extends Application {
 		try {
 					
 
+			// loading root FxMl File 
 			Pane root = FXMLLoader.load(getClass().getResource("ProjectManagement.fxml"));		
 			Scene scene = new Scene(root,900,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

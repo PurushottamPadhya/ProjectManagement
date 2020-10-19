@@ -766,6 +766,9 @@ public class ProjectManagementController {
 
 	}
 
+	// This class will check if one objective function is selected or not
+	// if selected swapped accordingly
+	//else return Error dialogue
 	@FXML
 	void autoSwapClicked(ActionEvent event) {
 
@@ -822,6 +825,7 @@ public class ProjectManagementController {
 		 this.saveData(updatedProjectList);
 	}
 
+	// pop data from the stack after undo clicked.
 	@FXML
 	void undoButtonClicked(ActionEvent event) {
 
@@ -849,7 +853,7 @@ public class ProjectManagementController {
 		
 	}
 	
-	
+	// push into the stack
    void saveDataFortheUnDoOperation(List<Project> projects) {
 		
 		manager.execute(new CAction("undo", projects));

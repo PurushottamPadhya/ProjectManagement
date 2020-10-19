@@ -1,5 +1,5 @@
 package commandManager;
-
+// Action interface to execute, undo operation
 public interface Action {
     void execute();
     Object undo();
