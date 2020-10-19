@@ -50,7 +50,7 @@ public class DatabseHandler {
 		
 	}
 	
-	
+	// insert students into student table and parameter is a singleton connection
 	
 	public void insertStudent(List<Student> students, Connection conn) throws SQLException {
 		

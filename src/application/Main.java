@@ -14,7 +14,7 @@ public class Main extends Application {
 					
 
 			// loading root FxMl File 
-			Pane root = FXMLLoader.load(getClass().getResource("ProjectManagement.fxml"));		
+			Pane root = FXMLLoader.load(getClass().getResource("/view/ProjectManagement.fxml"));		
 			Scene scene = new Scene(root,900,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
