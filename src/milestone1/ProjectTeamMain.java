@@ -4,8 +4,14 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import milestone2.FileHandler;
-import milestone2.Handler;
+import exceptions.InvalidInputException;
+import model.company.Company;
+import model.fileHandler.FileHandler;
+import model.handler.Handler;
+import model.orojectowner.ProjectOwner;
+import model.preference.Preference;
+import model.project.Project;
+import model.student.Student;
 
 public class ProjectTeamMain {
 
@@ -40,7 +46,7 @@ public class ProjectTeamMain {
 					System.out.println("H Display Team Fitness Metrics");
 					System.out.println("Q Quit");
 
-					String inputText = Utility.scan.next();
+					String inputText = utility.scan.next();
 					if (inputText.length() ==  1 ) {
 						
 						input = inputText.charAt(0);
@@ -49,8 +55,8 @@ public class ProjectTeamMain {
 						case 'A': {
 							
 
-							Company newCompany = Utility.getCompanyInput();
-							Utility.addCompany(newCompany, Utility.companyFileName);
+							Company newCompany = utility.getCompanyInput();
+							utility.addCompany(newCompany, utility.companyFileName);
 
 							System.out.println("new company created");
 
@@ -58,8 +64,8 @@ public class ProjectTeamMain {
 						}
 						case 'B': {
 							
-							ProjectOwner newOwner = Utility.getProjectOwnerInput();
-							Utility.addProjectOwner(newOwner, Utility.OwnerFileName);
+							ProjectOwner newOwner = utility.getProjectOwnerInput();
+							utility.addProjectOwner(newOwner, utility.OwnerFileName);
 
 							System.out.println("new owner added");
 							
@@ -68,8 +74,8 @@ public class ProjectTeamMain {
 						}
 						case 'C': {
 							
-							Project newProject = Utility.getProjectDetailsInput();
-							Utility.addProjectDetails(newProject, Utility.ProjectFileName);
+							Project newProject = utility.getProjectDetailsInput();
+							utility.addProjectDetails(newProject, utility.ProjectFileName);
 							
 							System.out.println("new project created");
 
@@ -78,8 +84,8 @@ public class ProjectTeamMain {
 						case 'D': {
 							
 							
-							Student newStudentPersonalityType = Utility.getStudentPersonalitiesInput();
-							Utility.addStudentPersonalityDetails(newStudentPersonalityType, Utility.StudentInfoFileName);
+							Student newStudentPersonalityType = utility.getStudentPersonalitiesInput();
+							utility.addStudentPersonalityDetails(newStudentPersonalityType, utility.StudentInfoFileName);
 							
 							System.out.println("new student personality added");
 							
@@ -97,8 +103,8 @@ public class ProjectTeamMain {
 						}
 						case 'E': {
 
-							Preference newStudentPreference = Utility.getStudentPreferencesInput();
-							Utility.addStudentPreferencesDetails(newStudentPreference, Utility.PreferenceFileName);
+							Preference newStudentPreference = utility.getStudentPreferencesInput();
+							utility.addStudentPreferencesDetails(newStudentPreference, utility.PreferenceFileName);
 							
 							System.out.println("new student preferences added added");
 							
@@ -107,7 +113,7 @@ public class ProjectTeamMain {
 						}
 						case 'F': {
 
-							Utility.showShortListedProjects(Utility.PreferenceFileName , Utility.ShortlistFileName);
+							utility.showShortListedProjects(utility.PreferenceFileName , utility.ShortlistFileName);
 							break;
 						}
 						case 'G': {

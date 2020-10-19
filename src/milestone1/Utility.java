@@ -18,15 +18,22 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Utility {
+import exceptions.InvalidInputException;
+import model.company.Company;
+import model.orojectowner.ProjectOwner;
+import model.preference.Preference;
+import model.project.Project;
+import model.student.Student;
 
-	public static final String companyFileName = "companies.txt";
-	public static final String OwnerFileName = "owners.txt";
-	public static final String ProjectFileName = "projects.txt";
-	public static final String StudentFileName = "students.txt";
-	public static final String StudentInfoFileName = "studentinfo.txt";
-	public static final String PreferenceFileName = "preferences.txt"; 
-	public static final String ShortlistFileName = "shortlistedProjects.txt";
+public class utility {
+
+	public static final String companyFileName = "resource/companies.txt";
+	public static final String OwnerFileName = "resource/owners.txt";
+	public static final String ProjectFileName = "resource/projects.txt";
+	public static final String StudentFileName = "resource/students.txt";
+	public static final String StudentInfoFileName = "resource/studentinfo.txt";
+	public static final String PreferenceFileName = "resource/preferences.txt"; 
+	public static final String ShortlistFileName = "resource/shortlistedProjects.txt";
 	
 	
 	public static Scanner scan = new Scanner(System.in);
@@ -187,7 +194,7 @@ public class Utility {
 				address = scan.next();
 				scan.nextLine();
 	
-				if (Utility.checkCompanyIDValidity(ID)) {
+				if (utility.checkCompanyIDValidity(ID)) {
 					isValid = true;
 					newCompany = new Company(ID, name, abnNumber, url, address);
 				}
@@ -209,7 +216,7 @@ public class Utility {
 		boolean status = false;
 		
 		
-		List<Company> savedCompany = Utility.getCompany(companyFileName);
+		List<Company> savedCompany = utility.getCompany(companyFileName);
 		Boolean isExisting =  savedCompany.size() > 0 ?  true : false;
 		System.out.println("Size of the company " + savedCompany.size() );
 		for (Company saved : savedCompany) {
@@ -259,7 +266,7 @@ public class Utility {
 		
 		BufferedReader bfReader;
 		
-			bfReader = new BufferedReader(new FileReader(Utility.companyFileName));
+			bfReader = new BufferedReader(new FileReader(utility.companyFileName));
 	
 			String reading = bfReader.readLine();
 			while(reading != null) {
@@ -316,7 +323,7 @@ public class Utility {
 			companyID = scan.next();
 			scan.nextLine();
 
-			if (Utility.checkOwnerIDValidity(ownerID) && Utility.checkCompanyIDValidity(companyID) && Utility.checkEmailValidity(email) ) {
+			if (utility.checkOwnerIDValidity(ownerID) && utility.checkCompanyIDValidity(companyID) && utility.checkEmailValidity(email) ) {
 				isValid = true;
 				newOwner = new ProjectOwner(firstname, surname, ownerID, role, email, companyID);
 			}
@@ -339,7 +346,7 @@ public class Utility {
 		BufferedReader bfReader;
 		
 		try {
-			bfReader = new BufferedReader(new FileReader(Utility.OwnerFileName));
+			bfReader = new BufferedReader(new FileReader(utility.OwnerFileName));
 	
 			String reading = bfReader.readLine();
 			while(reading != null) {
@@ -385,7 +392,7 @@ public class Utility {
 		boolean status = false;
 		
 		
-		List<ProjectOwner> savedProjectOwner = Utility.getProjectOwner(companyFileName);
+		List<ProjectOwner> savedProjectOwner = utility.getProjectOwner(companyFileName);
 		Boolean isExisting =  savedProjectOwner.size() > 0 ?  true : false;
 		System.out.println("Size of the company " + savedProjectOwner.size() );
 		for (ProjectOwner saved : savedProjectOwner) {
@@ -497,13 +504,13 @@ public class Utility {
 			
 			
 			
-			if (Utility.checkProjectIDValidity(ID) && Utility.checkOwnerIDValidity(ownerID) ) {
+			if (utility.checkProjectIDValidity(ID) && utility.checkOwnerIDValidity(ownerID) ) {
 				isValid = true;
 				newProject = new Project(title, ID, desc, ownerID);
 				
 			}
 			
-			if (Utility.checkSkillPointValidity(Integer.toString(P)) && Utility.checkSkillPointValidity(Integer.toString(N)) && Utility.checkSkillPointValidity(Integer.toString(A)) && Utility.checkSkillPointValidity(Integer.toString(W))) {
+			if (utility.checkSkillPointValidity(Integer.toString(P)) && utility.checkSkillPointValidity(Integer.toString(N)) && utility.checkSkillPointValidity(Integer.toString(A)) && utility.checkSkillPointValidity(Integer.toString(W))) {
 				isValid = true;
 				skillRanking.put("P", P);
 				skillRanking.put("N", N);
@@ -595,7 +602,7 @@ public class Utility {
 		boolean status = false;
 		
 		
-		List<Project> savedProject = Utility.getProjectDetails(fileName);
+		List<Project> savedProject = utility.getProjectDetails(fileName);
 		Boolean isExisting =  savedProject.size() > 0 ?  true : false;
 		System.out.println("Size of the project " + savedProject.size() );
 		for (Project saved : savedProject) {
@@ -799,7 +806,7 @@ public  static Student getStudentDetailsInput() throws IOException {
 		boolean status = false;
 		
 		
-		List<Student> savedStudent = Utility.getStudentDetails(fileName);
+		List<Student> savedStudent = utility.getStudentDetails(fileName);
 		Boolean isExisting =  savedStudent.size() > 0 ?  true : false;
 		System.out.println("Size of the project " + savedStudent.size() );
 		for (Student saved : savedStudent) {
@@ -913,7 +920,7 @@ public  static Student getStudentPersonalitiesInput() throws IOException, Invali
 			
 			
 			
-			if (Utility.checkStudentIDValidity(ID) && Utility.checkPersonalityTypeValidity(personalityType) && Utility.checkStudentIDValidity(conflict[0]) && Utility.checkStudentIDValidity(conflict[1])) {
+			if (utility.checkStudentIDValidity(ID) && utility.checkPersonalityTypeValidity(personalityType) && utility.checkStudentIDValidity(conflict[0]) && utility.checkStudentIDValidity(conflict[1])) {
 				
 				isValid = true;
 				newStudent = new Student( ID, grades, personalityType, conflict);
@@ -1005,7 +1012,7 @@ public  static Student getStudentPersonalitiesInput() throws IOException, Invali
 		
 		int savedPersonlaityCount = 0;
 		
-		List<Student> savedStudentPersonality = Utility.getStudentPersonalityDetails(fileName);
+		List<Student> savedStudentPersonality = utility.getStudentPersonalityDetails(fileName);
 		Boolean isExisting =  savedStudentPersonality.size() > 0 ?  true : false;
 		System.out.println("Size of the student personality record " + savedStudentPersonality.size() );
 		for (Student saved : savedStudentPersonality) {
@@ -1031,7 +1038,7 @@ public  static Student getStudentPersonalitiesInput() throws IOException, Invali
 		
 		// getting student information from the students.txt
 		
-		List<Student> savedStudent = Utility.getStudentDetails(Utility.StudentFileName);
+		List<Student> savedStudent = utility.getStudentDetails(utility.StudentFileName);
 		Student savedStudentDetails = null;
 		Boolean isExistingStudent =  savedStudent.size() > 0 ?  true : false;
 		System.out.println("Size of the project " + savedStudent.size() );
@@ -1165,7 +1172,7 @@ public  static Preference getStudentPreferencesInput() throws IOException, Inval
 				
 				 int preferPoint = scan.nextInt();
 				 scan.nextLine();
-				if (Utility.checkProjectIDValidity(prefered) && Utility.checkSkillPointValidity(Integer.toString(preferPoint))) {
+				if (utility.checkProjectIDValidity(prefered) && utility.checkSkillPointValidity(Integer.toString(preferPoint))) {
 						isValid = true;
 						preferences.put(prefered, preferPoint);
 				}
@@ -1252,7 +1259,7 @@ public  static Preference getStudentPreferencesInput() throws IOException, Inval
 		boolean status = false;
 		
 		
-		List<Preference> savedStudentPreferences = Utility.getStudentPreferencesDetails(fileName);
+		List<Preference> savedStudentPreferences = utility.getStudentPreferencesDetails(fileName);
 		Boolean isExisting =  savedStudentPreferences.size() > 0 ?  true : false;
 		System.out.println("Size of the project " + savedStudentPreferences.size() );
 		
@@ -1398,7 +1405,7 @@ public  static Preference getStudentPreferencesInput() throws IOException, Inval
 		boolean status = false;
 		
 		
-		List<Preference> savedStudentPreferences = Utility.getStudentPreferencesDetails(fileName);
+		List<Preference> savedStudentPreferences = utility.getStudentPreferencesDetails(fileName);
 		Boolean isExisting =  savedStudentPreferences.size() > 0 ?  true : false;
 		System.out.println("Size of the project " + savedStudentPreferences.size() );
 		

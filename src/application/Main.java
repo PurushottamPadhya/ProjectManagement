@@ -12,6 +12,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 					
+
 			Pane root = FXMLLoader.load(getClass().getResource("ProjectManagement.fxml"));		
 			Scene scene = new Scene(root,900,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -19,6 +20,7 @@ public class Main extends Application {
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 	
