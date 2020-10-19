@@ -16,7 +16,7 @@ import model.handler.Handler;
  * Unit testing to verify the standard deviation of all team team 
  * */
 
-public class StandardDeviationForSkillShortFallTest {
+public class StandardDeviationTest {
 
 	Handler handler;
 	@Before

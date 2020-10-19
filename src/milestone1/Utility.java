@@ -20,9 +20,9 @@ import java.util.regex.Pattern;
 
 import exceptions.InvalidInputException;
 import model.company.Company;
-import model.orojectowner.ProjectOwner;
 import model.preference.Preference;
 import model.project.Project;
+import model.projectowner.ProjectOwner;
 import model.student.Student;
 
 public class utility {

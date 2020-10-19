@@ -8,9 +8,9 @@ import exceptions.InvalidInputException;
 import model.company.Company;
 import model.fileHandler.FileHandler;
 import model.handler.Handler;
-import model.orojectowner.ProjectOwner;
 import model.preference.Preference;
 import model.project.Project;
+import model.projectowner.ProjectOwner;
 import model.student.Student;
 
 public class ProjectTeamMain {

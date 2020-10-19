@@ -1,4 +1,4 @@
-package model.orojectowner;
+package model.projectowner;
 
 import java.io.Serializable;
 
